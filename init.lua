@@ -1,6 +1,10 @@
 fabulous = {}
 
 local mod = fabulous
+local minetest = minetest
+local tostring = tostring
+local pairs = pairs
+
 mod.inventory_names = {
     fabulous_hat  = 'fabulous_hat',
     fabulous_face = 'fabulous_face',
@@ -16,12 +20,14 @@ mod.build_formspec_label = function(location_x, location_y, label)
     return 'label[' .. tostring(location_x) .. ',' .. tostring(location_y) .. ';' .. label .. ']'
 end
 
+
 mod.build_formspec_list = function(inventory_type, inventory_list, location_x, location_y, width, height)
     return 'list[' .. inventory_type .. ';' ..
       inventory_list .. ';' ..
       tostring(location_x) .. ',' .. tostring(location_y) .. ';' ..
       tostring(width) .. ',' .. tostring(height) .. ';]'
 end
+
 
 local inv_src = 'current_player'
 mod.formspec =  mod.build_formspec_label(1,1,'Hat') ..
@@ -46,6 +52,7 @@ mod.check_or_create_inv = function(player)
   end
 end
 
+
 mod.slot_type_check = function(stack, slot)
   local item_name = stack:get_name()
   local group_num = minetest.get_item_group(item_name, slot)
@@ -61,6 +68,7 @@ mod.node_name_to_entity_name = function(node)
   return node .. '_entity'
 end
 
+
 mod.attach_to_player = function(player, bone, entity_name, offset, rotation)
   local pos = player:getpos()
   local entity = minetest.add_entity(pos, entity_name)
@@ -69,6 +77,7 @@ mod.attach_to_player = function(player, bone, entity_name, offset, rotation)
   
   return entity
 end
+
 
 mod.detach_from_player = function(entity)
   if entity then
@@ -82,7 +91,7 @@ end
 
 
 mod.slot_to_bone = function(slot)
-  if slot == mod.inventory_names.fabulous_head then return 'Head' end
+  if slot == mod.inventory_names.fabulous_hat then return 'Head' end
   if slot == mod.inventory_names.fabulous_face then return 'Head' end
   if slot == mod.inventory_names.fabulous_body then return 'Body' end
   if slot == mod.inventory_names.fabulous_arms then return 'Arm' end
@@ -107,10 +116,10 @@ mod.wear_item = function(player, node_name)
     local lbone = bone .. '_Left'
     local rbone = bone .. '_Right'
     
-    local loffset = {item.offset.x, -1 * item.offset.y, item.offset.z}
+    local loffset = item.offset
     local roffset = item.offset
     
-    local lrotation = {item.rotation.x, -1 * item.rotation.y, item.rotation.z}
+    local lrotation = {x = item.rotation.x, y = item.rotation.y, z= item.rotation.z}
     local rrotation = item.rotation
     
     local lentity = mod.attach_to_player(player, lbone, entity_name, loffset, lrotation)
@@ -123,6 +132,7 @@ mod.wear_item = function(player, node_name)
     attached[item.slot .. bone] = entity
   end
 end
+
 
 mod.remove_item = function(player, slot)
   local player_name = player:get_player_name()
@@ -155,7 +165,7 @@ mod.remove_item = function(player, slot)
   
   end
 end
-  
+
 
 mod.allow_player_inventory_action = function(player, action, inventory, inventory_info)
   local list = inventory_info.to_list or 
@@ -179,6 +189,7 @@ mod.allow_player_inventory_action = function(player, action, inventory, inventor
     end
   end
 end
+
 
 mod.on_player_inventory_action = function(player, action, inventory, inventory_info)
   if mod.inventory_names[inventory_info.listname] or
@@ -211,6 +222,7 @@ mod.on_player_inventory_action = function(player, action, inventory, inventory_i
   end
 end
 
+
 mod.wear_all = function(player)
   local inv = player:get_inventory()
   
@@ -222,6 +234,7 @@ mod.wear_all = function(player)
   end
 end
 
+
 mod.remove_all = function(player)
   local player_name = player:get_player_name()
   local attached = mod.players[player_name]
@@ -231,11 +244,13 @@ mod.remove_all = function(player)
   end
 end
 
+
 mod.remove_unattached_items = function(entity)
   if not entity:get_attach() then
     entity:remove()
   end
 end
+
 
 mod.item_on_activate = function(self, staticdata, dtime_s)
   minetest.after(0.01, mod.remove_unattached_items, self.object)
@@ -259,9 +274,6 @@ mod.register_fabulousness = function(name, slot, node_def, scale, offset, rotati
   minetest.register_entity(mod.node_name_to_entity_name(name), entity_def)
   mod.items[name] = {slot = slot, offset = offset, rotation = rotation}
 end
-
-
-
 
 
 -- init bits
