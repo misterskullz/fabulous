@@ -5,7 +5,7 @@ local glasses00 = {}
 glasses00.name = prefix .. 'glasses00'
 glasses00.slot = mod.inventory_names.fabulous_face
 glasses00.node_def =  {
-                        groups = {fabulous_face = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_face = 1},
                         description = 'Brown Glasses',
                         tiles = {
                           'default_wood.png'
@@ -37,10 +37,10 @@ local glasses01 = {}
 glasses01.name = prefix .. 'glasses01'
 glasses01.slot = mod.inventory_names.fabulous_face
 glasses01.node_def =  {
-                        groups = {fabulous_face = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_face = 1},
                         description = 'Gray Glasses',
                         tiles = {
-                          'default_wood.png'
+                          'default_stone.png'
                         },
                         drawtype = 'nodebox',
                         paramtype = 'light',
@@ -70,7 +70,7 @@ local glasses02 = {}
 glasses02.name = prefix .. 'glasses02'
 glasses02.slot = mod.inventory_names.fabulous_face
 glasses02.node_def =  {
-                        groups = {fabulous_face = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_face = 1},
                         description = 'Fabulous Glasses',
                         tiles = {
                           'default_diamond_block.png'
@@ -104,7 +104,7 @@ local stash00 = {}
 stash00.name = prefix .. 'stash00'
 stash00.slot = mod.inventory_names.fabulous_face
 stash00.node_def =  {
-                        groups = {fabulous_face = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_face = 1},
                         description = 'Fabulous Mustache',
                         tiles = {
                           'default_obsidian_block.png'
@@ -134,7 +134,7 @@ local monocle00 = {}
 monocle00.name = prefix .. 'monocle00'
 monocle00.slot = mod.inventory_names.fabulous_face
 monocle00.node_def =  {
-                        groups = {fabulous_face = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_face = 1},
                         description = 'Fabulous Monocle',
                         tiles = {
                           'default_steel_block.png'
@@ -165,7 +165,7 @@ local hat00 = {}
 hat00.name = prefix .. 'hat00'
 hat00.slot = mod.inventory_names.fabulous_hat
 hat00.node_def =  {
-                        groups = {fabulous_hat = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_hat = 1},
                         description = 'Fabulous Hat',
                         tiles = {
                           'default_snow.png'
@@ -193,7 +193,7 @@ local hat01 = {}
 hat01.name = prefix .. 'hat01'
 hat01.slot = mod.inventory_names.fabulous_hat
 hat01.node_def =  {
-                        groups = {fabulous_hat = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_hat = 1},
                         description = 'Fabulous Top Hat',
                         tiles = {
                           'default_coal_block.png'
@@ -218,7 +218,7 @@ local hat02 = {}
 hat02.name = prefix .. 'hat02'
 hat02.slot = mod.inventory_names.fabulous_hat
 hat02.node_def =  {
-                        groups = {fabulous_hat = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_hat = 1},
                         description = 'Fabulous Cowboy Hat',
                         tiles = {
                           'default_desert_sandstone.png'
@@ -248,7 +248,7 @@ local coat00 = {}
 coat00.name = prefix .. 'coat00'
 coat00.slot = mod.inventory_names.fabulous_body
 coat00.node_def =  {
-                        groups = {fabulous_body = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_body = 1},
                         description = 'Fabulous Coat',
                         tiles = {
                           'default_snow.png'
@@ -275,7 +275,7 @@ local coat_arms_00 = {}
 coat_arms_00.name = prefix .. 'coat_arms_00'
 coat_arms_00.slot = mod.inventory_names.fabulous_arms
 coat_arms_00.node_def =  {
-                        groups = {fabulous_arms = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_arms = 1},
                         description = 'Fabulous Coat Arms',
                         tiles = {
                           'default_snow.png'
@@ -303,7 +303,7 @@ local coat01 = {}
 coat01.name = prefix .. 'coat01'
 coat01.slot = mod.inventory_names.fabulous_body
 coat01.node_def =  {
-                        groups = {fabulous_body = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_body = 1},
                         description = 'Fabulous Black Coat',
                         tiles = {
                           'default_coal_block.png'
@@ -335,7 +335,7 @@ local coat_arms_01 = {}
 coat_arms_01.name = prefix .. 'coat_arms_01'
 coat_arms_01.slot = mod.inventory_names.fabulous_arms
 coat_arms_01.node_def =  {
-                        groups = {fabulous_arms = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_arms = 1},
                         description = 'Fabulous Black Coat Arms',
                         tiles = {
                           'default_coal_block.png'
@@ -360,7 +360,7 @@ local pants_00 = {}
 pants_00.name = prefix .. 'pants_00'
 pants_00.slot = mod.inventory_names.fabulous_legs
 pants_00.node_def =  {
-                        groups = {fabulous_legs = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_legs = 1},
                         description = 'Fabulous Pants',
                         tiles = {
                           'default_snow.png'
@@ -388,7 +388,7 @@ local mask00 = {}
 mask00.name = prefix .. 'mask00'
 mask00.slot = mod.inventory_names.fabulous_face
 mask00.node_def =  {
-                        groups = {fabulous_face = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_face = 1},
                         description = 'Fabulous Skull Mask',
                         tiles = {
                           'default_coral_skeleton.png'
@@ -420,7 +420,7 @@ local mask01 = {}
 mask01.name = prefix .. 'mask01'
 mask01.slot = mod.inventory_names.fabulous_face
 mask01.node_def =  {
-                        groups = {fabulous_face = 1},
+                        groups = {oddly_breakable_by_hand = 1, fabulous_face = 1},
                         description = 'Fabulous Bear Mask',
                         tiles = {
                           'default_bronze_block.png'

@@ -239,8 +239,10 @@ mod.remove_all = function(player)
   local player_name = player:get_player_name()
   local attached = mod.players[player_name]
   
-  for i, entity in pairs(attached) do
-    mod.detach_from_player(entity)
+  if attached then
+    for i, entity in pairs(attached) do
+      mod.detach_from_player(entity)
+    end
   end
 end
 
